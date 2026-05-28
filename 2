@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+string ler() {
+    string mes;
+    cout << "digite o nome do mes ";
+    cin >> mes;
+    return mes;
+}
+
+string abreviar(string mes) {
+    string abrev = "";
+
+    for (int i = 0; i < 3; i++) {
+        abrev += mes[i];
+    }
+
+    abrev += ".";
+
+    return abrev;
+}
+
+void imprimir(string abrev) {
+    cout << abrev << endl;
+}
+
+int main() {
+    string mes, abrev;
+
+    mes = ler();
+    abrev = abreviar(mes);
+
+    imprimir(abrev);
+
+    return 0;
+}
