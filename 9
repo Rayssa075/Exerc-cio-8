@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+
+void geraArquivo(std::string base, int N, int M, std::string extensao) {
+    for (int i = 1; i <= M; i++) {
+        cout << base;
+        cout << std::setfill('0') << std::setw(N) << i;
+        cout << "." << extensao;
+        
+        if (i < M) cout << ", ";
+        else cout << std::endl;
+    }
+}
+
+int main() {
+       geraArquivo("dado", 3, 5, "dat");
+
+    return 0;
+}
