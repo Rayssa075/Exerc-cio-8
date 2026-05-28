@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+
+void converterParaBmp(std::string &nomeArquivo) {
+    size_t posicaoPonto = nomeArquivo.rfind('.');
+
+    if (posicaoPonto != std::string::npos && nomeArquivo.substr(posicaoPonto + 1) == "gif") {
+        // Substitui a partir da posição do ponto (incluindo ele)
+        nomeArquivo.replace(posicaoPonto + 1, 3, "bmp");
+    } else {
+        cout << "Formato inválido ou não é um .gif." <<endl;
+    }
+}
+
+int main() {
+    string arquivo;
+
+    cout << "Digite o nome do arquivo (ex: imagem.gif): ";
+    getline(std::cin, arquivo);
+
+    converterParaBmp(arquivo);
+
+    cout << "Nome do arquivo após a alteração: " << arquivo <<endl;
+
+    return 0;
+}
