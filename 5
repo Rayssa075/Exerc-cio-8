@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+
+string processarFrase(std::string str, int contagens[]) {
+   string invertida = "";
+    int n = str.length();
+
+    for (int i = n - 1; i >= 0; i--) {
+        invertida += str[i];
+    }
+
+    
+    string vogais = "aeiouAEIOU";
+    for (int i = 0; i < invertida.length(); i++) {
+        // Verifica se é vogal
+        for (int j = 0; j < 10; j++) {
+            if (invertida[i] == vogais[j]) {
+                contagens[j / 2]++;
+                invertida[i] = '?';
+                break;
+            }
+        }
+    }
+    return invertida;
+}
+
+int main() {
+    std::string frase;
+    int contagens[5] = {0, 0, 0, 0, 0};
+
+    cout << "Digite uma frase: ";
+    getline(std::cin, frase);
+
+    string resultado = processarFrase(frase, contagens);
+
+    cout << "\nFrase invertida e modificada: " << resultado << std::endl;
+    cout << "Quantidade de cada vogal (A, E, I, O, U):" << std::endl;
+    cout << "A: " << contagens[0] << " | E: " << contagens[1] << " | I: " << contagens[2] 
+              << " | O: " << contagens[3] << " | U: " << contagens[4] <<endl;
+
+    return 0;
+}
