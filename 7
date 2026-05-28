@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <cctype> 
+
+string inverterCaixa(std::string texto) {
+    for (int i = 0; i < texto.length(); i++) {
+        if (std::islower(texto[i])) {
+            texto[i] = std::toupper(texto[i]);
+        }
+        else if (std::isupper(texto[i])) {
+            texto[i] = std::tolower(texto[i]);
+        }
+    }
+    return texto;
+}
+
+int main() {
+    string frase;
+
+    cout << "Digite uma frase: ";
+    getline(std::cin, frase);
+
+    string resultado = inverterCaixa(frase);
+
+    cout << "Frase com caixas invertidas: " << resultado <<endl;
+
+    return 0;
+}
